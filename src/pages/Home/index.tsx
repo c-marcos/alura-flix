@@ -1,10 +1,11 @@
 import { LayoutDefault } from "../../layouts/LayoutDefault";
+import { Banner } from "./Banner";
 
 
 export const Home = () => {
    return (
       <LayoutDefault>
-         <h1>Page Home</h1>
+         <Banner/>
       </LayoutDefault>
    );
 }

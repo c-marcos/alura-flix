@@ -18,9 +18,9 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
   return (
     <div css={layoutStyles}>
       <Header/>
-      <div css={css`flex: 1;`}>
+      <main css={css`flex: 1; width:'100%'`}>
         {children}
-      </div>
+      </main>
       <Footer/>
     </div>
   );

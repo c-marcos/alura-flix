@@ -18,6 +18,9 @@ const ButtonStyled = styled.button<ButtonProps>`
   width: 180px;
  ${(props) => props.shadow && 'box-shadow: inset 4px 4px 12px var(--primary-color), inset -4px -4px 12px var(--primary-color)'};
   cursor: pointer;
+  &:hover{
+    opacity: .7
+  } 
 `;
 
 export const ButtonDefault = ({borderColor, textColor, shadow, text}: Props) => {
