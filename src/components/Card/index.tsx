@@ -2,7 +2,7 @@
 import styled from "@emotion/styled";
 import { ActionsCard } from "./ActinsCard/ActionsCard";
 import { useShowVideo } from "../../contexts/ContexShowVideo";
-import { TypeVieo } from "../../Types/TypeVideo";
+import { TechnologyType, TypeVieo } from "../../Types/TypeVideo";
 
 interface PropsCard {
    category: string;
@@ -13,6 +13,7 @@ interface PropsImg {
 }
 
 type Props = {
+   type: TechnologyType
    data: TypeVieo
 }
 
@@ -38,7 +39,7 @@ const ImageContainer = styled.div<PropsImg>`
    }
 `;
 
-export const Card = ({data}: Props) => {
+export const Card = ({data, type}: Props) => {
    const show = useShowVideo();
    const handleShowVideo = () => {
       show.toogleOverlay();
@@ -48,7 +49,7 @@ export const Card = ({data}: Props) => {
       <Cardtyled category={data.category}>
          <ImageContainer onClick={handleShowVideo} img={data.linkImg} category={data.category}>
          </ImageContainer>
-         <ActionsCard/>
+         <ActionsCard video={data} type={type}/>
       </Cardtyled>
    );
 }

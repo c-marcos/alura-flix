@@ -3,10 +3,10 @@ import {SwiperSlide } from 'swiper/react';
 import {ButoonCategory} from "../Butoons/ButoonCategory";
 import { Card } from "../Card/";
 import { SlideVideos } from "../Slides/SlideVideos";
-import { TypeVieo } from "../../Types/TypeVideo";
+import { TechnologyType, TypeVieo } from "../../Types/TypeVideo";
 
 type Props = {
-   type: string;
+   type: TechnologyType;
    data: TypeVieo[]
 }
 
@@ -30,7 +30,7 @@ export const Cards = ({data, type}: Props) => {
          <SlideVideos>
             {data.map(video => (
                <SwiperSlide key={video.id}>
-                  <Card key={video.id} data={video}/>
+                  <Card key={video.id} data={video} type={type}/>
                </SwiperSlide>
             ))}
          </SlideVideos>
