@@ -5,6 +5,7 @@ import { Footer } from "../components/Footer/Footer";
 
 interface LayoutDefaultProps { 
    children: React.ReactNode;
+   HeaderColor?: string
  }
 
 const layoutStyles = css`
@@ -14,11 +15,11 @@ const layoutStyles = css`
   width: 100%;;
   box-sizing: border-box;
 `;
-export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
+export const LayoutDefault = ({ children, HeaderColor }: LayoutDefaultProps) => {
   return (
     <div css={layoutStyles}>
-      <Header/>
-      <main css={css`flex: 1; width:'100%'`}>
+      <Header bgColor= {HeaderColor}/>
+      <main css={css`flex: 1; width:'100%'; display: flex; flex-direction: column;`}>
         {children}
       </main>
       <Footer/>

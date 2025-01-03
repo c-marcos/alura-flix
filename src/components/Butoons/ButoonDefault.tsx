@@ -1,29 +1,33 @@
 import styled from "@emotion/styled";
 
 interface ButtonProps {
-  borderColor?: string; 
-  textColor?: string;  
+  borderColor?: string | boolean; 
+  textColor?: string | boolean;  
   shadow?: boolean;
 }
-type Props = ButtonProps & { text: string}
+type Props ={ text: string; active?: boolean}
 
 const ButtonStyled = styled.button<ButtonProps>`
   background-color: #000000;
-  color: ${(props) => props.textColor || "var(--primary-color)"};
-  border: 2px solid ${(props) => props.borderColor || "var(--primary-color)"};
+  color: ${(props) => props.textColor || "var(--color-light)"};
+  border: 2px solid ${(props) => props.borderColor || "var(--color-light)"};
   border-radius: 10px;
   text-transform: uppercase;
   font-size: 1.5rem;
   height: 54px;
   width: 180px;
- ${(props) => props.shadow && 'box-shadow: inset 4px 4px 12px var(--primary-color), inset -4px -4px 12px var(--primary-color)'};
+  box-sizing: border-box;
+  ${(props) => props.shadow && 'box-shadow: var(--shadow-default)'};
   cursor: pointer;
   &:hover{
-    opacity: .7
+    transform: scale(1.1);
   } 
 `;
 
-export const ButtonDefault = ({borderColor, textColor, shadow, text}: Props) => {
+export const ButtonDefault = ({active ,text}: Props) => {
+  const borderColor= active &&  'var(--primary-color)';
+  const textColor= active && 'var(--primary-color)'
+  const shadow = active
   return (
     <ButtonStyled borderColor={borderColor} textColor={textColor} shadow = {shadow} >
       {text}

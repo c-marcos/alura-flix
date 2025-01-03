@@ -1,18 +1,13 @@
-import styled from "@emotion/styled";
-import banner from '../../../assets/images/banner.png'
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+import { SlideBanner } from "../../../components/Slides/SlideBanner";
+
+export const Banner = () => {
+   return (
+      <div css={css` width: 100%; height:700px;`}>
+         <SlideBanner/>
+      </div>
+   );
+};
 
 
-const BannerStyled = styled.section`
-   height: 700px;
-   width: 100%;
-   background-image: url(${banner});
-   background-position: center -60px;
-`
-
-export const Banner = () =>{
-
-   return(
-      <BannerStyled>
-      </BannerStyled>
-   )
-}

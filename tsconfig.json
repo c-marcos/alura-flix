@@ -3,12 +3,17 @@
   "compilerOptions": {
     "target": "ES2017",
     "module": "esnext",
-    "moduleResolution": "bundler",
     "forceConsistentCasingInFileNames": true, // Força consistência em nomes de arquivos
     "allowSyntheticDefaultImports": true, // Suporte para importação padrão de módulos comuns
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
     "baseUrl": "./",
+    "typeRoots": ["node_modules/@types", "node_modules/swiper/types"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "*": ["node_modules/*"]
     }
 },
   "files": [],

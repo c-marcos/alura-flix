@@ -1,10 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./assets/css/index.css";
+import { AppRoutes } from "./Routes.tsx";
+import GlobalStyles from "./components/GlobalStyles/GlobalStyles.tsx";
+import { ShowVideoProvider } from "./contexts/ContexShowVideo.tsx";
+import { DataProvider } from "./contexts/ContexVideos.tsx";
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <DataProvider>
+      <ShowVideoProvider>
+        <GlobalStyles />
+        <AppRoutes />
+      </ShowVideoProvider>
+    </DataProvider>
+  </StrictMode>
+);
