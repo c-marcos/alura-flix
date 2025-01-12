@@ -3,6 +3,7 @@ import delit from "../../../assets/images/delet.svg";
 import edite from "../../../assets/images/edite.png";
 import { useVideosData } from "../../../contexts/ContexVideos";
 import { TechnologyType, TypeVieo } from "../../../Types/TypeVideo";
+import { useUpdateVideo } from "../../../contexts/ContexUpdate";
 
 type Props = {
    type: TechnologyType;
@@ -37,16 +38,15 @@ const Button = styled.button`
 
 export const ActionsCard = ({video, type}: Props) => {
    const data = useVideosData();
+   const update = useUpdateVideo();
 
    const handleDelete = () => {
       data?.dispatch({type: 'DELETE_ITEM', payload: {id: video.id, category: video.category}});
    }
 
    const handleUpdate = () => {
-      data?.dispatch({
-         type: 'UPDATE_ITEM', 
-         payload: {type: type, data: {...video, linkImg: newLink}}
-      });
+      update.toogleUpdate();
+      update.handleUpdateVideo(video, type);
    }
 
    return (
@@ -61,4 +61,3 @@ export const ActionsCard = ({video, type}: Props) => {
    );
 };
 
-const newLink = "https://i.ytimg.com/vi/OYTF8jICHpA/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGFcgXihlMA8=&rs=AOn4CLAXgKPIuKv86DlHMzOekwX8XTackA"

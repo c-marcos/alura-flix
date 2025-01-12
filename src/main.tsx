@@ -5,14 +5,17 @@ import { AppRoutes } from "./Routes.tsx";
 import GlobalStyles from "./components/GlobalStyles/GlobalStyles.tsx";
 import { ShowVideoProvider } from "./contexts/ContexShowVideo.tsx";
 import { DataProvider } from "./contexts/ContexVideos.tsx";
+import { UpdateVideoProvider } from "./contexts/ContexUpdate.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <DataProvider>
-      <ShowVideoProvider>
-        <GlobalStyles />
-        <AppRoutes />
-      </ShowVideoProvider>
+      <UpdateVideoProvider>
+        <ShowVideoProvider>
+          <GlobalStyles />
+          <AppRoutes />
+        </ShowVideoProvider>
+      </UpdateVideoProvider>
     </DataProvider>
   </StrictMode>
 );

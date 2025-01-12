@@ -1,6 +1,7 @@
 // tsconfig.json (ajustado)
 {
   "compilerOptions": {
+    "proxy": "https://github.com",
     "target": "ES2017",
     "module": "esnext",
     "forceConsistentCasingInFileNames": true, // Força consistência em nomes de arquivos

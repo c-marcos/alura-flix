@@ -14,7 +14,9 @@ export const GalleryVideos = () => {
 
    return(
       <GalleryStyled>
-         {videos?.state.map(video => <Cards key={video.type} data={video.data} type={video.type} />)}
+         {videos?.state.map(video => (
+            video.data.length > 0 && <Cards key={video.type} data={video.data} type={video.type} />
+         ))}
       </GalleryStyled>
    )
 }

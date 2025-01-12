@@ -39,7 +39,7 @@ const CloseVideo = styled.div<CloseType>`
   }
 `;
 
-export const ModalVideo = () => {
+export const ModalShowVideo = () => {
   const show = useShowVideo();
 
   const handleClose = () => {
